@@ -1,17 +1,54 @@
 :root {
-    /* Paleta Flat clásica */
-    --color_0: #2F2E41; /* gris oscuro sólido */
-    --color_1: #6C63FF; /* acento principal */
-    --color_2: #3F3D56; /* secundario */
-    --color_3: #E5E5E5; /* gris claro */
-    --color_4: #FFB9B9; /* acento suave */
+    /* Colores ajustados para ser planos y sólidos */
+    --color_0: #3F3D56; /* Oscuro principal */
+    --color_1: #6C63FF; /* Color de Acento (Saturado y Plano) */
+    --color_2: #2F2E41; /* Oscuro secundario */
+    --color_3: #EBEBEB; /* Gris muy claro y plano (Fondo/Bordes sutiles) */
+    --color_4: #FF5A5A; /* Color secundario/alerta (Más saturado) */
+    --color_texto_claro: white;
 }
 
-/* Navbar */
+/* --- Globales y Tipografía --- */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.seccion-titulo {
+    font-size: 2rem;
+    padding: 15px 0;
+}
+
+.seccion-texto {
+    font-size: 1.2rem;
+}
+
+.seccion-descripcion {
+    font-size: 1.2rem;
+    color: var(--color_0);
+}
+
+.section-oscura {
+    color: var(--color_texto_claro);
+    background-color: var(--color_0);
+}
+
+.section-clara {
+    color: var(--color_2);
+    background-color: var(--color_texto_claro); /* Fondo blanco plano */
+}
+
+/* --- Navbar --- */
 .navbar {
     padding: 2rem;
-    background-color: #ffffff; /* más flat */
-    border-bottom: 2px solid var(--color_3); /* bordes planos */
+    background-color: var(--color_texto_claro); /* Fondo plano */
+    /* Asegúrate de que no haya box-shadow por defecto de algún framework */
 }
 
 .navbar-nav {
@@ -23,9 +60,15 @@
     justify-content: space-between;
 }
 
-/* MyClass */
+@media screen and (max-width: 767px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+
+/* --- MyClass (Hero Section) --- */
 .myclass {
-    background-color: #ffffff;
+    background-color: var(--color_3); /* Fondo gris claro plano */
     min-height: 450px;
     text-align: center;
 }
@@ -44,17 +87,13 @@
     height: 200px;
     border-radius: 50%;
     margin: 20px;
+    border: 3px solid var(--color_1); /* Borde plano para destacar */
 }
 
-/* About */
+/* --- About Me --- */
 .about-me {
     height: 500px;
     padding: 10px;
-}
-
-.section-oscura {
-    color: white;
-    background-color: var(--color_0);
 }
 
 .about-me .contenedor {
@@ -62,26 +101,16 @@
     text-align: center;
 }
 
-.seccion-titulo {
-    font-size: 2rem;
-    padding: 15px 0;
-}
-
-.seccion-texto {
-    font-size: 1.2rem;
-}
-
-/* Experiencia */
+/* --- Experiencia --- */
 .experiencia {
     padding: 40px;
 }
 
-/* Flat hover limpio */
+/* Efecto hover plano: cambio de color sólido, sin redondeo */
 .experiencia-columna:hover {
-    background-color: var(--color_3);
-    color: var(--color_0);
-    border-radius: 4px;
-    transition: 0.2s;
+    color: var(--color_texto_claro);
+    background-color: var(--color_1);
+    border-radius: 0; 
 }
 
 .experiencia-title {
@@ -90,25 +119,14 @@
     margin: 10px 0;
 }
 
-/* Íconos flat → sin fondo burbuja */
 .experiencia i {
     font-size: 2.5rem;
     color: var(--color_1);
-    padding: 6px;
+    background-color: var(--color_0);
+    padding: 8px 19px;
+    border-radius: 50%; /* Iconos circulares planos */
 }
 
-/* Secciones claras */
-.seccion-descripcion {
-    font-size: 1.2rem;
-    color: var(--color_0);
-}
-
-.section-clara {
-    color: var(--color_2);
-    background-color: white;
-}
-
-/* Badges */
 .badge-contenedor {
     font-size: 20px;
     font-weight: bold;
@@ -119,7 +137,7 @@
     margin: 5px;
 }
 
-/* Proyectos */
+/* --- Proyectos --- */
 .proyectos {
     padding: 40px;
 }
@@ -127,21 +145,20 @@
 .proyectos img {
     height: 100%;
     width: 100%;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 0; /* Quitar padding */
+    border-radius: 0; /* Rectangular es más Flat */
     display: block;
-    transition: 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-/* Hover más flat (no tan agresivo) */
-.proyecto:hover img {
-    transform: scale(1.02);
-    opacity: 0.9;
+.proyectos-contenedor {
+    padding-top: 60px;
+    margin-bottom: 40px;
 }
 
 .overlay {
+    transition: all 0.2s ease;
     opacity: 0;
-    transition: 0.2s;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -152,6 +169,8 @@
 .overlay p {
     font-size: 25px;
     font-weight: bold;
+    margin-bottom: 0;
+    color: var(--color_texto_claro); /* Texto del overlay blanco */
 }
 
 .overlay i {
@@ -164,60 +183,31 @@
     position: relative;
 }
 
+.proyecto:hover img {
+    opacity: 0.15; /* Más opacidad en el hover para efecto plano */
+}
+
 .proyecto:hover .overlay{
     opacity: 1;
 }
 
-/* Sections */
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;    
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-/* BOTONES FLAT */
-.btn-info {
-    background-color: var(--color_1);
-    color: white;
-    border: none;
-    font-size: 1.1rem;
-    margin: 20px;
-    font-weight: bold;    
-    border-radius: 6px;
-    padding: 10px 20px;
-    transition: 0.2s;
-}
-
-.btn-info:hover {
-    background-color: #5a54e8;
-}
-
-/* Tips */
+/* --- Tips y Recomendaciones (Carousel) --- */
 .tips {
     min-height: 500px;
     padding: 30px;
 }
 
-/* Quitar sombras de las cards */
 .tips .card {
     width: 80%;
     max-width: 600px;
     margin: 20px;
-    border: 1px solid var(--color_3);
-    border-radius: 6px;
-    box-shadow: none !important;
+    /* Asegúrate de que las cards no tengan box-shadow o gradientes */
 }
 
 .tips .card-header {
     font-weight: bold;
 }
 
-/* Recomendaciones */
 .recomendaciones {
     padding: 40px 40px 80px 40px;
 }
@@ -227,10 +217,8 @@ h1 {
     color: var(--color_1);
 }
 
-/* Quitar sombras extra de bootstrap carousel */
 .carousel-item {
     height: 500px;
-    box-shadow: none;
 }
 
 .carousel-item .container {
@@ -246,14 +234,14 @@ h1 {
     height: 150px;
     width: 150px;
     margin: 10px 10px 20px 10px;
-    border-radius: 50%;
+    /* Asegúrate de que no tenga box-shadow */
 }
 
 .recomendacion-texto {
     max-width: 70%;
     font-size: 20px;
     text-align: center;
-    color: var(--color_2);
+    color: var(--color_0);
 }
 
 .recomendacion-info {
@@ -261,19 +249,51 @@ h1 {
     text-align: center;
 }
 
-/* Contacto */
+.recomendacion-info p {
+    margin-bottom: 0;
+}
+
+.recomendacion-info .amigo {
+    color: var(--color_2);
+    font-size: 1.2rem;
+}
+
+.recomendacion-info .cargo {
+    color: var(--color_0);
+    font-size: 0.9rem;
+}
+
+/* --- Botones Genéricos (.btn-info) --- */
+.btn-info {
+    background-color: var(--color_2); /* Fondo sólido */
+    color: var(--color_texto_claro); /* Texto blanco plano */
+    border: none;
+    font-size: 1.1rem;
+    margin: 20px;
+    font-weight: bold;
+    border-radius: 0; /* Estilo Flat: Rectangular */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-info:hover {
+    background-color: var(--color_1); /* Cambio de color sólido */
+    color: var(--color_texto_claro);
+    border: none;
+}
+
+/* --- Contacto (Call to Action) --- */
 .contact .container {
     max-width: 1100px;
     min-height: 200px;
     padding: 20px;
 }
 
+/* Eliminar sombras y el efecto 3D */
 .contact .rectangulo {
-    margin-top: -5rem;
+    margin-top: 0; 
     background-color: var(--color_1);
-    border-radius: 6px;
-    /* quitar sombras */
-    box-shadow: none;
+    border-radius: 0;
+    box-shadow: none; /* ¡Eliminar sombra! */
 }
 
 .contact .row {
@@ -283,27 +303,33 @@ h1 {
 }
 
 .contact .description {
-    color: var(--color_3);
+    color: var(--color_texto_claro); /* Texto blanco para contraste */
     font-size: 1.2rem;
 }
 
-/* Botón estilo flat */
 .contact button {
-    color: white;
+    color: var(--color_texto_claro); 
     font-weight: bold;
     background-color: transparent;
-    border: 2px solid white;
+    border: 2px solid var(--color_texto_claro); /* Borde plano y sólido */
     padding: 1.25em 2em;
     margin: 10px;
-    border-radius: 6px;
-    transition: 0.2s;
+    border-radius: 0; /* Rectangular */
+    transition: all 0.2s ease-in-out;
+}
+
+.contact button i {
+    color: var(--color_texto_claro); 
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in-out;
 }
 
 .contact button:hover {
-    background-color: white;
-    color: var(--color_1);
+    background-color: var(--color_texto_claro); /* Fondo blanco sólido en hover */
+    color: var(--color_1); /* Texto de color de acento */
 }
 
+/* --- Footer --- */
 footer {
     min-height: 500px;
     display: flex;
@@ -323,7 +349,7 @@ footer {
     margin-bottom: 30px;
 }
 
-/* Redes sociales */
+/* Íconos sociales - Asegurar efectos planos */
 .icons-sn a {
     width: 50px;
     height: 50px;
@@ -334,40 +360,46 @@ footer {
     margin: 10px;
     border: 2px solid var(--color_3);
     border-radius: 50%;
-    transition: 0.2s;
-}
-
-.icons-sn a:hover {
-    background-color: var(--color_3);
+    transition: all 0.2s ease-in;
 }
 
 .icons-sn i {
-    color: var(--color_2);
+    color: var(--color_2); /* Color de ícono plano */
     font-size: 1.5rem;
+    transition: all 0.2s ease-in;
+}
+
+.icons-sn a:hover {
+    background-color: var(--color_1); /* Fondo sólido de acento */
+    border-color: var(--color_1);
 }
 
 .icons-sn a:hover i {
-    color: var(--color_0);
+    color: var(--color_texto_claro); /* Ícono blanco en hover */
 }
 
 .author {
     font-size: 15px;
-    color: var(--color_4);
+    color: var(--color_2);
     padding: 20px;
 }
 
-/* Responsive */
+
+/* --- Responsive --- */
+
 @media screen and (max-width: 400px) {
-    .overlay p { font-size: 18px; }
-    .overlay i { font-size: 40px; }
+    .overlay p {
+        font-size: 18px;
+    }
+    .overlay i {
+        font-size: 40px;
+    }
 }
 
 @media screen and (max-width: 700px) {
-    .myclass-imagen { max-width: 600px; }
-}
-
-@media screen and (max-width: 767px) {
-    .navbar-brand { display: none; }
+    .myclass-imagen {
+        max-width: 600px;
+    }
 }
 
 @media screen and (max-width: 800px) {
