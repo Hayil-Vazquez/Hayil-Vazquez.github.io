@@ -1,10 +1,11 @@
 :root {
-    /* Colores ajustados para ser planos y sólidos */
-    --color_0: #3F3D56; /* Oscuro principal */
-    --color_1: #6C63FF; /* Color de Acento (Saturado y Plano) */
-    --color_2: #2F2E41; /* Oscuro secundario */
-    --color_3: #EBEBEB; /* Gris muy claro y plano (Fondo/Bordes sutiles) */
-    --color_4: #FF5A5A; /* Color secundario/alerta (Más saturado) */
+    /* Nueva paleta de Colores Flat Design */
+    --color_0: #2C3E50; /* Oscuro Principal (Texto/Headers) */
+    --color_1: #1ABC9C; /* Acento Principal (Interacción, Botones, Hover) */
+    --color_2: #34495E; /* Oscuro Secundario (Bordes/Íconos) */
+    --color_3: #ECF0F1; /* Fondo de Sección Clara (Gris Nube) */
+    --color_4: #E74C3C; /* Acento Secundario/Alerta (Rojo) */
+    --color_5: #F9F9F9; /* Fondo Principal */
     --color_texto_claro: white;
 }
 
@@ -18,6 +19,7 @@ section {
 
 h1 {
     font-size: 2.5rem;
+    color: var(--color_0);
 }
 
 .seccion-titulo {
@@ -36,19 +38,18 @@ h1 {
 
 .section-oscura {
     color: var(--color_texto_claro);
-    background-color: var(--color_0);
+    background-color: var(--color_0); /* Fondo Oscuro Sólido */
 }
 
 .section-clara {
     color: var(--color_2);
-    background-color: var(--color_texto_claro); /* Fondo blanco plano */
+    background-color: var(--color_texto_claro);
 }
 
 /* --- Navbar --- */
 .navbar {
     padding: 2rem;
-    background-color: var(--color_texto_claro); /* Fondo plano */
-    /* Asegúrate de que no haya box-shadow por defecto de algún framework */
+    background-color: var(--color_texto_claro);
 }
 
 .navbar-nav {
@@ -60,15 +61,9 @@ h1 {
     justify-content: space-between;
 }
 
-@media screen and (max-width: 767px) {
-    .navbar-brand {
-        display: none;
-    }
-}
-
 /* --- MyClass (Hero Section) --- */
 .myclass {
-    background-color: var(--color_3); /* Fondo gris claro plano */
+    background-color: var(--color_5); /* Usamos el fondo principal blanco roto */
     min-height: 450px;
     text-align: center;
 }
@@ -79,7 +74,7 @@ h1 {
 
 .myclass-main h2 {
     font-size: 1.5rem;
-    color: var(--color_1);
+    color: var(--color_1); /* Acento Turquesa */
 }
 
 .myclass-pic {
@@ -87,7 +82,7 @@ h1 {
     height: 200px;
     border-radius: 50%;
     margin: 20px;
-    border: 3px solid var(--color_1); /* Borde plano para destacar */
+    border: 3px solid var(--color_1);
 }
 
 /* --- About Me --- */
@@ -104,12 +99,13 @@ h1 {
 /* --- Experiencia --- */
 .experiencia {
     padding: 40px;
+    background-color: var(--color_3); /* Fondo Gris Nube */
 }
 
-/* Efecto hover plano: cambio de color sólido, sin redondeo */
+/* Hover plano: cambio de color sólido */
 .experiencia-columna:hover {
     color: var(--color_texto_claro);
-    background-color: var(--color_1);
+    background-color: var(--color_1); /* Fondo Turquesa en hover */
     border-radius: 0; 
 }
 
@@ -117,14 +113,15 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     margin: 10px 0;
+    color: var(--color_0);
 }
 
 .experiencia i {
     font-size: 2.5rem;
-    color: var(--color_1);
-    background-color: var(--color_0);
+    color: var(--color_texto_claro); /* Icono blanco */
+    background-color: var(--color_2); /* Fondo Gris Azulado */
     padding: 8px 19px;
-    border-radius: 50%; /* Iconos circulares planos */
+    border-radius: 50%;
 }
 
 .badge-contenedor {
@@ -145,8 +142,8 @@ h1 {
 .proyectos img {
     height: 100%;
     width: 100%;
-    padding: 0; /* Quitar padding */
-    border-radius: 0; /* Rectangular es más Flat */
+    padding: 0;
+    border-radius: 0;
     display: block;
     transition: all 0.2s ease;
 }
@@ -170,11 +167,11 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 0;
-    color: var(--color_texto_claro); /* Texto del overlay blanco */
+    color: var(--color_texto_claro);
 }
 
 .overlay i {
-    color: var(--color_2);
+    color: var(--color_1); /* Ícono de Acento Turquesa */
     font-size: 60px;
     margin: 10px;
 }
@@ -184,99 +181,27 @@ h1 {
 }
 
 .proyecto:hover img {
-    opacity: 0.15; /* Más opacidad en el hover para efecto plano */
+    opacity: 0.15;
 }
 
 .proyecto:hover .overlay{
     opacity: 1;
 }
 
-/* --- Tips y Recomendaciones (Carousel) --- */
-.tips {
-    min-height: 500px;
-    padding: 30px;
-}
-
-.tips .card {
-    width: 80%;
-    max-width: 600px;
-    margin: 20px;
-    /* Asegúrate de que las cards no tengan box-shadow o gradientes */
-}
-
-.tips .card-header {
-    font-weight: bold;
-}
-
-.recomendaciones {
-    padding: 40px 40px 80px 40px;
-}
-
-.recomendaciones .carousel {
-    max-width: 800px;
-    color: var(--color_1);
-}
-
-.carousel-item {
-    height: 500px;
-}
-
-.carousel-item .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.recomendacion-imagen {
-    height: 150px;
-    width: 150px;
-    margin: 10px 10px 20px 10px;
-    /* Asegúrate de que no tenga box-shadow */
-}
-
-.recomendacion-texto {
-    max-width: 70%;
-    font-size: 20px;
-    text-align: center;
-    color: var(--color_0);
-}
-
-.recomendacion-info {
-    font-weight: bold;
-    text-align: center;
-}
-
-.recomendacion-info p {
-    margin-bottom: 0;
-}
-
-.recomendacion-info .amigo {
-    color: var(--color_2);
-    font-size: 1.2rem;
-}
-
-.recomendacion-info .cargo {
-    color: var(--color_0);
-    font-size: 0.9rem;
-}
-
 /* --- Botones Genéricos (.btn-info) --- */
 .btn-info {
-    background-color: var(--color_2); /* Fondo sólido */
-    color: var(--color_texto_claro); /* Texto blanco plano */
+    background-color: var(--color_1); /* Fondo Turquesa Sólido */
+    color: var(--color_texto_claro);
     border: none;
     font-size: 1.1rem;
     margin: 20px;
     font-weight: bold;
-    border-radius: 0; /* Estilo Flat: Rectangular */
+    border-radius: 0;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-info:hover {
-    background-color: var(--color_1); /* Cambio de color sólido */
+    background-color: var(--color_2); /* Fondo Gris Azulado en hover */
     color: var(--color_texto_claro);
     border: none;
 }
@@ -288,22 +213,15 @@ h1 {
     padding: 20px;
 }
 
-/* Eliminar sombras y el efecto 3D */
 .contact .rectangulo {
     margin-top: 0; 
-    background-color: var(--color_1);
+    background-color: var(--color_1); /* Fondo Turquesa Sólido */
     border-radius: 0;
-    box-shadow: none; /* ¡Eliminar sombra! */
-}
-
-.contact .row {
-    width: 100%;
-    display: flex;
-    align-items: center;
+    box-shadow: none;
 }
 
 .contact .description {
-    color: var(--color_texto_claro); /* Texto blanco para contraste */
+    color: var(--color_texto_claro); 
     font-size: 1.2rem;
 }
 
@@ -311,10 +229,10 @@ h1 {
     color: var(--color_texto_claro); 
     font-weight: bold;
     background-color: transparent;
-    border: 2px solid var(--color_texto_claro); /* Borde plano y sólido */
+    border: 2px solid var(--color_texto_claro);
     padding: 1.25em 2em;
     margin: 10px;
-    border-radius: 0; /* Rectangular */
+    border-radius: 0;
     transition: all 0.2s ease-in-out;
 }
 
@@ -325,8 +243,8 @@ h1 {
 }
 
 .contact button:hover {
-    background-color: var(--color_texto_claro); /* Fondo blanco sólido en hover */
-    color: var(--color_1); /* Texto de color de acento */
+    background-color: var(--color_texto_claro);
+    color: var(--color_1); /* Texto Turquesa en hover */
 }
 
 /* --- Footer --- */
@@ -335,6 +253,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--color_0); /* Fondo oscuro principal */
 }
 
 .footer-icon {
@@ -347,9 +266,10 @@ footer {
     font-size: 1.5rem;
     padding: 20px;
     margin-bottom: 30px;
+    color: var(--color_texto_claro);
 }
 
-/* Íconos sociales - Asegurar efectos planos */
+/* Íconos sociales */
 .icons-sn a {
     width: 50px;
     height: 50px;
@@ -364,29 +284,27 @@ footer {
 }
 
 .icons-sn i {
-    color: var(--color_2); /* Color de ícono plano */
+    color: var(--color_3); /* Ícono de color Gris Nube */
     font-size: 1.5rem;
     transition: all 0.2s ease-in;
 }
 
 .icons-sn a:hover {
-    background-color: var(--color_1); /* Fondo sólido de acento */
+    background-color: var(--color_1); /* Fondo Turquesa en hover */
     border-color: var(--color_1);
 }
 
 .icons-sn a:hover i {
-    color: var(--color_texto_claro); /* Ícono blanco en hover */
+    color: var(--color_texto_claro);
 }
 
 .author {
     font-size: 15px;
-    color: var(--color_2);
+    color: var(--color_texto_claro);
     padding: 20px;
 }
 
-
 /* --- Responsive --- */
-
 @media screen and (max-width: 400px) {
     .overlay p {
         font-size: 18px;
