@@ -1,15 +1,19 @@
+/* ---------------------------------------------- */
+/*                PALETA DE COLORES              */
+/* ---------------------------------------------- */
 :root {
-    /* Nueva paleta de Colores Flat Design */
-    --color_0: #2C3E50; /* Oscuro Principal (Texto/Headers) */
-    --color_1: #1ABC9C; /* Acento Principal (Interacción, Botones, Hover) */
-    --color_2: #34495E; /* Oscuro Secundario (Bordes/Íconos) */
-    --color_3: #ECF0F1; /* Fondo de Sección Clara (Gris Nube) */
-    --color_4: #E74C3C; /* Acento Secundario/Alerta (Rojo) */
-    --color_5: #F9F9F9; /* Fondo Principal */
-    --color_texto_claro: white;
+    --color_0: #1E2A38;   /* Texto oscuro / encabezados */
+    --color_1: #4BC6FF;   /* Acento celeste pastel */
+    --color_2: #7A8FA6;   /* Gris azulado */
+    --color_3: #E9F7FF;   /* Fondo claro celeste */
+    --color_4: #FF6F61;   /* Rojo coral */
+    --color_5: #F5FBFF;   /* Fondo general pastel */
+    --color_texto_claro: #FFFFFF;
 }
 
-/* --- Globales y Tipografía --- */
+/* ---------------------------------------------- */
+/*              GLOBALES Y TIPOGRAFÍA            */
+/* ---------------------------------------------- */
 section {
     display: flex;
     flex-direction: column;
@@ -38,18 +42,23 @@ h1 {
 
 .section-oscura {
     color: var(--color_texto_claro);
-    background-color: var(--color_0); /* Fondo Oscuro Sólido */
+    background-color: var(--color_0);
+    padding: 60px 20px;
 }
 
 .section-clara {
-    color: var(--color_2);
-    background-color: var(--color_texto_claro);
+    color: var(--color_0);
+    background-color: var(--color_5);
+    padding: 60px 20px;
 }
 
-/* --- Navbar --- */
+/* ---------------------------------------------- */
+/*                   NAVBAR                      */
+/* ---------------------------------------------- */
 .navbar {
     padding: 2rem;
-    background-color: var(--color_texto_claro);
+    background-color: var(--color_5);
+    border-bottom: 3px solid var(--color_3);
 }
 
 .navbar-nav {
@@ -61,9 +70,11 @@ h1 {
     justify-content: space-between;
 }
 
-/* --- MyClass (Hero Section) --- */
+/* ---------------------------------------------- */
+/*                MYCLASS (HERO)                 */
+/* ---------------------------------------------- */
 .myclass {
-    background-color: var(--color_5); /* Usamos el fondo principal blanco roto */
+    background-color: var(--color_5);
     min-height: 450px;
     text-align: center;
 }
@@ -74,7 +85,7 @@ h1 {
 
 .myclass-main h2 {
     font-size: 1.5rem;
-    color: var(--color_1); /* Acento Turquesa */
+    color: var(--color_1);
 }
 
 .myclass-pic {
@@ -85,7 +96,9 @@ h1 {
     border: 3px solid var(--color_1);
 }
 
-/* --- About Me --- */
+/* ---------------------------------------------- */
+/*                 ABOUT ME                      */
+/* ---------------------------------------------- */
 .about-me {
     height: 500px;
     padding: 10px;
@@ -96,17 +109,27 @@ h1 {
     text-align: center;
 }
 
-/* --- Experiencia --- */
+/* ---------------------------------------------- */
+/*                EXPERIENCIA                    */
+/* ---------------------------------------------- */
 .experiencia {
     padding: 40px;
-    background-color: var(--color_3); /* Fondo Gris Nube */
+    background-color: var(--color_3);
 }
 
-/* Hover plano: cambio de color sólido */
+.experiencia-columna {
+    background-color: var(--color_5);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+}
+
 .experiencia-columna:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.10);
+    background-color: var(--color_1);
     color: var(--color_texto_claro);
-    background-color: var(--color_1); /* Fondo Turquesa en hover */
-    border-radius: 0; 
 }
 
 .experiencia-title {
@@ -118,8 +141,8 @@ h1 {
 
 .experiencia i {
     font-size: 2.5rem;
-    color: var(--color_texto_claro); /* Icono blanco */
-    background-color: var(--color_2); /* Fondo Gris Azulado */
+    color: var(--color_texto_claro);
+    background-color: var(--color_2);
     padding: 8px 19px;
     border-radius: 50%;
 }
@@ -134,7 +157,9 @@ h1 {
     margin: 5px;
 }
 
-/* --- Proyectos --- */
+/* ---------------------------------------------- */
+/*                   PROYECTOS                   */
+/* ---------------------------------------------- */
 .proyectos {
     padding: 40px;
 }
@@ -166,12 +191,11 @@ h1 {
 .overlay p {
     font-size: 25px;
     font-weight: bold;
-    margin-bottom: 0;
     color: var(--color_texto_claro);
 }
 
 .overlay i {
-    color: var(--color_1); /* Ícono de Acento Turquesa */
+    color: var(--color_1);
     font-size: 60px;
     margin: 10px;
 }
@@ -181,32 +205,39 @@ h1 {
 }
 
 .proyecto:hover img {
-    opacity: 0.15;
+    opacity: 0.10;
+    filter: blur(1px);
 }
 
-.proyecto:hover .overlay{
+.proyecto:hover .overlay {
     opacity: 1;
 }
 
-/* --- Botones Genéricos (.btn-info) --- */
+/* ---------------------------------------------- */
+/*                BOTONES (.btn-info)            */
+/* ---------------------------------------------- */
 .btn-info {
-    background-color: var(--color_1); /* Fondo Turquesa Sólido */
+    background-color: var(--color_1);
     color: var(--color_texto_claro);
     border: none;
     font-size: 1.1rem;
     margin: 20px;
     font-weight: bold;
-    border-radius: 0;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 10px;
+    padding: 14px 26px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-info:hover {
-    background-color: var(--color_2); /* Fondo Gris Azulado en hover */
+    background-color: var(--color_2);
     color: var(--color_texto_claro);
-    border: none;
+    transform: translateY(-3px);
 }
 
-/* --- Contacto (Call to Action) --- */
+/* ---------------------------------------------- */
+/*                CONTACTO CTA                   */
+/* ---------------------------------------------- */
 .contact .container {
     max-width: 1100px;
     min-height: 200px;
@@ -215,9 +246,9 @@ h1 {
 
 .contact .rectangulo {
     margin-top: 0; 
-    background-color: var(--color_1); /* Fondo Turquesa Sólido */
-    border-radius: 0;
-    box-shadow: none;
+    background-color: var(--color_1);
+    border-radius: 12px;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
 }
 
 .contact .description {
@@ -232,28 +263,30 @@ h1 {
     border: 2px solid var(--color_texto_claro);
     padding: 1.25em 2em;
     margin: 10px;
-    border-radius: 0;
+    border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 .contact button i {
-    color: var(--color_texto_claro); 
+    color: var(--color_texto_claro);
     font-size: 1.3rem;
     transition: all 0.2s ease-in-out;
 }
 
 .contact button:hover {
     background-color: var(--color_texto_claro);
-    color: var(--color_1); /* Texto Turquesa en hover */
+    color: var(--color_1);
 }
 
-/* --- Footer --- */
+/* ---------------------------------------------- */
+/*                   FOOTER                      */
+/* ---------------------------------------------- */
 footer {
     min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color_0); /* Fondo oscuro principal */
+    background-color: var(--color_0);
 }
 
 .footer-icon {
@@ -269,7 +302,6 @@ footer {
     color: var(--color_texto_claro);
 }
 
-/* Íconos sociales */
 .icons-sn a {
     width: 50px;
     height: 50px;
@@ -284,13 +316,13 @@ footer {
 }
 
 .icons-sn i {
-    color: var(--color_3); /* Ícono de color Gris Nube */
+    color: var(--color_3);
     font-size: 1.5rem;
     transition: all 0.2s ease-in;
 }
 
 .icons-sn a:hover {
-    background-color: var(--color_1); /* Fondo Turquesa en hover */
+    background-color: var(--color_1);
     border-color: var(--color_1);
 }
 
@@ -304,7 +336,9 @@ footer {
     padding: 20px;
 }
 
-/* --- Responsive --- */
+/* ---------------------------------------------- */
+/*                  RESPONSIVE                   */
+/* ---------------------------------------------- */
 @media screen and (max-width: 400px) {
     .overlay p {
         font-size: 18px;
